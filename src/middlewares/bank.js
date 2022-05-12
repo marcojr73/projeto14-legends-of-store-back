@@ -8,7 +8,7 @@ const mongoClient = new MongoClient(process.env.MONGO_URI)
 
 try {
     await mongoClient.connect()
-    db = mongoClient.db("test") 
+    db = mongoClient.db("store_of_legends") 
     console.log("conexão com o banco de dados estabelecida")
 } catch (e) {
     console.log("erro ao se conectar com o banco de dados", e)
