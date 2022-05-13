@@ -1,7 +1,7 @@
 import joi from "joi";
 import db from "./bank.js";
 
-export async function validSignUp(req, res, next){
+export default async function validateSignUp(req, res, next){
     const signUpSchema = joi.object({
         name: joi.string().required(),
         email: joi.string().email().required,
@@ -14,7 +14,7 @@ export async function validSignUp(req, res, next){
         return res.status(422).send("Preencha os dados corretamente")
     }
 
-    const alreadyExists = await db.collection("costumers").findOne({email: req.body.email})
+    const alreadyExists = await db.collection("customers").findOne({email: req.body.email})
     if (alreadyExists){
         return res.status(409).send("Email já cadastrado")
     }
