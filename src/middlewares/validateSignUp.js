@@ -1,15 +1,16 @@
-import joi from "joi";
+import Joi from "joi";
 import db from "./bank.js";
 
-export default async function validateSignUp(req, res, next){
-    const signUpSchema = joi.object({
-        name: joi.string().required(),
-        email: joi.string().email().required,
-        password: joi.string().required(),
-        confirmPassword: joi.ref('password')
-    })
 
-    const valid = signUpSchema.validate(req.body);
+export default async function validateSignUp(req, res, next){
+    const signUpSchema = Joi.object({
+        username: Joi.string().required(),
+        email: Joi.string().email().required(),
+        password: Joi.string().required(),
+        confirmPassword: Joi.ref('password')
+    })
+    
+    const valid = await signUpSchema.validateAsync(req.body)
     if(valid.error){
         return res.status(422).send("Preencha os dados corretamente")
     }
