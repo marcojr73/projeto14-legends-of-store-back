@@ -3,6 +3,7 @@ import cors from "cors"
 import dotenv from "dotenv"
 import signInRouter from "./routes/signInRoute.js";
 import signUpRouter from "./routes/signUpRoute.js"
+import itemsRouter from "./routes/itemsRoute.js";
 
 
 const app = express()
@@ -12,6 +13,7 @@ dotenv.config()
 
 app.use(signInRouter)
 app.use(signUpRouter)
+app.use(itemsRouter)
 
 
 const PORT = process.env.PORT
