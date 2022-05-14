@@ -4,13 +4,14 @@ import dotenv from "dotenv"
 import signInRouter from "./routes/signInRoute.js";
 import signUpRouter from "./routes/signUpRoute.js"
 import itemsRouter from "./routes/itemsRoute.js";
-
+import championsRoute from "./routes/championsRoute.js"
 
 const app = express()
 app.use(cors())
 app.use(express.json())
 dotenv.config()
 
+app.use(championsRoute)
 app.use(signInRouter)
 app.use(signUpRouter)
 app.use(itemsRouter)
