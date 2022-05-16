@@ -4,6 +4,7 @@ import db from "./../middlewares/bank.js";
 export async function signUpUser(req, res){
     const {username, email, password, confirmPassword} = req.body
     const encrypted = bcrypt.hashSync(password, 10)
+    
     try {
         await db.collection("customers").insertOne({
             username, email, password: encrypted

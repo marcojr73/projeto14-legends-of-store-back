@@ -6,7 +6,6 @@ export default async function validateToken(req, res, next){
     const token = authorization.substring("Bearer ".length)
     try{
         const online = await db.collection("sessions").findOne({token})
-        console.log(online)
         if(!online){
             return res.send("You were disconnected, please sign in again").status(498)
         }
