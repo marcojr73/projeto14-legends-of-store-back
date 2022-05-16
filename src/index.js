@@ -5,6 +5,7 @@ import signInRouter from "./routes/signInRoute.js";
 import signUpRouter from "./routes/signUpRoute.js"
 import itemsRouter from "./routes/itemsRoute.js";
 import championsRoute from "./routes/championsRoute.js"
+import purchaseRoute from "./routes/purchaseRoute.js"
 
 const app = express()
 app.use(cors())
@@ -15,6 +16,7 @@ app.use(championsRoute)
 app.use(signInRouter)
 app.use(signUpRouter)
 app.use(itemsRouter)
+app.use(purchaseRoute)
 
 
 const PORT = process.env.PORT
