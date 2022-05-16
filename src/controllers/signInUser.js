@@ -2,7 +2,6 @@ import db from "../middlewares/bank.js"
 import { v4 } from "uuid";
 
 export default async function signInUser(req, res){
-    console.log(req.body)
     const user = res.locals.user
     try {
         const token = v4()
@@ -14,5 +13,4 @@ export default async function signInUser(req, res){
     } catch (e) {
         res.status(500).send("ocorreu um erro")
     }
-
 }
